@@ -11,3 +11,19 @@ exports.Insertdemo=async (o)=>
     .catch((err)=>data.msg =err)
     return data
 }
+exports.getDemo=async()=>
+{
+    let data ;
+    await demoModel.find()
+    .then((d)=>data=d)
+    .catch((err)=>data=err)
+    return data
+}
+exports.getDemobyName =async(n)=>
+{
+     let data ;
+    await demoModel.find({name:n})
+    .then((d)=>data=d[0])
+    .catch((err)=>data=err)
+    return data
+}
