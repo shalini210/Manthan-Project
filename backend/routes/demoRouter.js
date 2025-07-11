@@ -20,4 +20,17 @@ const demoController = require("../controllers/demoController")
    let d =await demoController.Insertdemo(obj)
     res.send(d)
 })
+router.put("/",async(req,res)=>
+{
+        let id = req.body.id;
+    let newdata =  {name :req.body.name,age:req.body.age}
+    let data = await demoController.UpdateDemobyID(id,newdata)
+    res.send(data)
+})
+router.delete("/:id",async(req,res)=>
+{
+    let id = req.params.id;
+    let data = await demoController.DeleteDemobyID(id)
+    res.send(data)
+})
 module.exports = router

@@ -1,0 +1,6 @@
+/user post (insert user -> name ,address,email,contact,password)
+/user get (select all users)
+/user/email (select user by email   )
+/user/:id delete ->delete user by id 
+/user/:id put ->update user details other than email 
+/user/changepwd put=> update password based on email and current password 

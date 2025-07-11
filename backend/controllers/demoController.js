@@ -11,6 +11,32 @@ exports.Insertdemo=async (o)=>
     .catch((err)=>data.msg =err)
     return data
 }
+exports.UpdateDemobyID=async (id,newdata)=>
+{
+    let data ={};    
+await   demoModel.findByIdAndUpdate(id,newdata)
+    .then((d)=>{
+        data.msg ="record Updated"
+        data.demo = d
+    })
+    .catch((e)=>data=e);
+    
+    return data
+}
+exports.DeleteDemobyID = async (id) =>
+{
+    let data = {};
+    await demoModel.findByIdAndDelete(id)
+    .then((d)=>
+    {
+        data.msg =" record Deleted"
+    })
+    .catch((err)=>
+    {
+        data.err =err
+    })
+    return data 
+}
 exports.getDemo=async()=>
 {
     let data ;
